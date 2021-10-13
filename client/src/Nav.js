@@ -4,8 +4,8 @@ import { data } from "./Data";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { RiLogoutBoxLine } from "react-icons/ri";
-const Nav = () => {
-  const [showNav, setShowNav] = useState(true);
+const Nav = ({ user }) => {
+  const [showNav, setShowNav] = useState(false);
   const handleSubmenu = () => {
     setShowNav(!showNav);
   };
@@ -25,6 +25,7 @@ const Nav = () => {
             fontSize: "2rem",
           }}
         />
+        <p>{`Hi there ${user.name}`}</p>
       </div>
       <nav className={showNav ? "side active" : "side"}>
         <ul onClick={handleSubmenu} style={{ width: "100%" }}>

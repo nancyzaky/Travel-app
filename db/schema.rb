@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_203538) do
+ActiveRecord::Schema.define(version: 2021_10_13_050902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "start_date"
+    t.string "end_date"
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.boolean "parking"
+    t.boolean "pool"
+    t.boolean "gym"
+    t.integer "hotel_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "hotels", force: :cascade do |t|
     t.string "location"
@@ -23,9 +41,27 @@ ActiveRecord::Schema.define(version: 2021_10_09_203538) do
     t.integer "rating"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "url"
+    t.integer "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "text"
+    t.bigint "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["room_id"], name: "index_reviews_on_room_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.integer "price"
     t.string "description"
+    t.integer "hotel_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

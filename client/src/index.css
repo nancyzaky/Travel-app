@@ -40,7 +40,7 @@ body {
   /* margin-left: 30%; */
   background-size: 1000px;
   /* margin-top: 1rem; */
-  border: tomato solid 0.2rem;
+  /* border: tomato solid 0.2rem; */
 }
 
 .side {
@@ -112,6 +112,7 @@ span {
   padding: 2rem;
   position: relative;
   border: tomato solid 0.2rem;
+  cursor: grabbing;
 }
 .hotel-name {
   /* color: white; */
@@ -122,4 +123,83 @@ span {
   transform: translate(-50%, -50%);
   color: white;
   font-weight: bolder;
+}
+.details {
+  border: tomato solid 0.2rem;
+  width: 500px;
+  height: 310px;
+  float: right;
+}
+.rooms-container {
+  border: tomato solid 0.2rem;
+  display: grid;
+}
+.single-room {
+  border: tomato solid 0.2rem;
+  display: inline;
+  width: 100%;
+}
+.room-pics-container {
+  display: inline-block;
+  border: tomato solid 0.2rem;
+  /* text-align: center; */
+}
+.room-pics {
+  display: inline;
+}
+.comment {
+  height: 200px;
+  width: 100%;
+  border: tomato solid 0.2rem;
+}
+.modal {
+  background-color: white;
+  box-shadow: var(--dark-shadow);
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 2rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  transition-delay: 0.1s;
+  transition-duration: 0.4s;
+}
+
+.close {
+  font-size: 30px;
+  color: red;
+  float: right;
+}
+
+.calendar-cont {
+  height: 300px;
+  width: 300px;
+  margin-top: 2rem;
+  margin-left: 3rem;
+}
+.calendar {
+  border: solid red 0.02rem;
+  color: cornflowerblue;
+}
+.picker {
+  height: 2rem;
+  width: 10rem;
+}
+.btn {
+  width: 7rem;
+  height: 2rem;
+  background-color: black;
+  color: white;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.2rem;
+  font-weight: bold;
+}
+
+.features-cont {
+  border: tomato solid 0.2rem;
 }

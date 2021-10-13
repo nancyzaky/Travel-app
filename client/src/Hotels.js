@@ -12,7 +12,7 @@ const Hotels = () => {
     <>
       <ul className="hotel-cont">
         {hotels.map((hotel) => {
-          return <Hotel hotel={hotel} />;
+          return <Hotel key={hotel.id} hotel={hotel} />;
         })}
       </ul>
     </>
