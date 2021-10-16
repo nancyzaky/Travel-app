@@ -19,7 +19,7 @@ const Login = ({ changeUser }) => {
 
         resp.json().then((data) => {
           console.log(data);
-          changeUser(data.name);
+          changeUser(data);
         });
         history.push("/");
       } else {

@@ -10,7 +10,7 @@ const Rating = ({ changeRate }) => {
       count={5}
       onChange={ratingChanged}
       size={20}
-      filledIcon={3}
+      // filledIcon={1}
       activeColor="#ffd700"
     />
   );

@@ -12,8 +12,7 @@ render json: room, status: :created
 
 end
 def index
-  hotel = Hotel.find_by(id:params[:hotel_id]).rooms
-
+  hotel = Hotel.find_by!(id:params[:hotel_id]).rooms
   render json: hotel, include: :pictures
 end
 def show

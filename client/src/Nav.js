@@ -4,7 +4,7 @@ import { data } from "./Data";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { RiLogoutBoxLine } from "react-icons/ri";
-const Nav = ({ user }) => {
+const Nav = ({ user, changeUser }) => {
   const [showNav, setShowNav] = useState(false);
   const handleSubmenu = () => {
     setShowNav(!showNav);
@@ -13,6 +13,7 @@ const Nav = ({ user }) => {
     fetch("/logout", {
       method: "DELETE",
     });
+    changeUser({});
   };
   return (
     <>
@@ -25,12 +26,12 @@ const Nav = ({ user }) => {
             fontSize: "2rem",
           }}
         />
-        <p>{`Hi there ${user.name}`}</p>
+        {user.name && <p>{`Hi  ${user.name}`}</p>}
       </div>
       <nav className={showNav ? "side active" : "side"}>
         <ul onClick={handleSubmenu} style={{ width: "100%" }}>
           <li className="cross">
-            <Link to="/">
+            <Link to="#">
               <AiOutlineArrowLeft
                 style={{ fontSize: "2rem", color: "white" }}
               />
@@ -38,7 +39,7 @@ const Nav = ({ user }) => {
           </li>
           {data.map((item, index) => {
             return (
-              <li className="nav-links">
+              <li className="nav-links" key={item.id}>
                 <Link to={item.path}>
                   {item.icon}
                   <span> {item.title}</span>

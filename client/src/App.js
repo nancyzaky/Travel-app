@@ -8,7 +8,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import Rooms from "./Rooms";
 import Details from "./Details";
-
+import Cart from "./Cart";
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
@@ -25,29 +25,35 @@ function App() {
       }
     });
   }, []);
+
   return (
-    <Router>
+    <>
       <div className="App">
-        <Nav user={user} />
-        <Switch>
-          <Route exact path="/">
-            <Home user={user} />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login changeUser={changeUser} />
-          </Route>
-          <Route path="/hotel/:id">
-            <Details />
-          </Route>
-          <Route path="/room/:id">
-            <Rooms user={user} />
-          </Route>
-        </Switch>
+        <Router>
+          <Nav user={user} changeUser={changeUser} />
+          <Switch>
+            <Route exact path="/">
+              <Home user={user} />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/login">
+              <Login changeUser={changeUser} />
+            </Route>
+            <Route exact path="/hotel/:id/rooms">
+              <Rooms user={user} />
+            </Route>
+            <Route path="/hotel/:id">
+              <Details />
+            </Route>
+            <Route path="/:id/cart">
+              <Cart />
+            </Route>
+          </Switch>
+        </Router>
       </div>
-    </Router>
+    </>
   );
 }
 

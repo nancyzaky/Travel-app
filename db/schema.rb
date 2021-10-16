@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_050902) do
+ActiveRecord::Schema.define(version: 2021_10_14_221633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2021_10_13_050902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "rating"
+    t.float "lat"
+    t.float "long"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -66,10 +68,31 @@ ActiveRecord::Schema.define(version: 2021_10_13_050902) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "specifics", force: :cascade do |t|
+    t.string "bed"
+    t.boolean "breakfast"
+    t.boolean "bar"
+    t.boolean "ocean_view"
+    t.boolean "a_c"
+    t.integer "room_id"
+    t.boolean "tv"
+    t.boolean "fridge"
+    t.boolean "hair_dryer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.string "url"
+    t.integer "hotel_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -12,9 +12,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
   end
   dates_arr_range.each do |range|
      if (Date.parse(range[0])..Date.parse(range[1])).include?Date.parse(params[:start_date])..Date.parse(params[:end_date])
-      return render json: {error: "dates already taken"},status: :unprocessable_entity
+      return render json: {error: "These dates are already booked, Please try other dates"},status: :unprocessable_entity
      elsif all_dates.include?params[:start_date]
-      return render json: {error: "dates already taken"}, status: :unprocessable_entity
+      return render json: {error: "These dates are already booked, Please try other dates"}, status: :unprocessable_entity
       elsif all_dates.include?params[:end_date]
      return render json: {error: "These dates are already booked, Please try other dates"},status: :unprocessable_entity
       else

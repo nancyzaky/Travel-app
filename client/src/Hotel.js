@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Rating from "./Rating";
 const Hotel = ({ hotel }) => {
   let history = useHistory();
@@ -9,13 +9,14 @@ const Hotel = ({ hotel }) => {
 
   return (
     <li className="hotel">
-      <h3 className="hotel-name">{hotel.location}</h3>
+      {" "}
       <img
         src={hotel.image}
         alt="pic"
         className="hotel-pic"
         onClick={handleClick}
       />
+      <h3 className="hotel-name">{hotel.location}</h3>
       {/* <Rating /> */}
     </li>
   );

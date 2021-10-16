@@ -13,6 +13,7 @@ get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"
 get "/rooms/:id", to: "rooms#show"
 resources :reviews, only: [:create, :index]
+post "/views", to: "views#create"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Room from "./Room";
+import RoomsN from "./RoomsN";
 const Rooms = ({ user }) => {
   const [rooms, setRooms] = useState([]);
   let { id } = useParams();
@@ -19,7 +20,7 @@ const Rooms = ({ user }) => {
     <div>
       <ul className="rooms-container">
         {rooms.map((room) => {
-          return <Room room={room} user={user} key={room.id} />;
+          return <RoomsN room={room} user={user} key={room.id} />;
         })}
       </ul>
     </div>
