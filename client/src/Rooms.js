@@ -20,6 +20,7 @@ const Rooms = ({ user }) => {
     <div>
       <ul className="rooms-container">
         {rooms.map((room) => {
+          console.log(rooms);
           return <RoomsN room={room} user={user} key={room.id} />;
         })}
       </ul>

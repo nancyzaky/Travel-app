@@ -137,11 +137,7 @@ span {
   height: 310px;
   float: right;
 }
-.rooms-container {
-  border: tomato solid 0.2rem;
-  display: flex;
-  width: 100%;
-}
+
 .main-hotel-pic {
   width: 400px;
   height: 400px;
@@ -342,4 +338,41 @@ span {
   position: absolute;
   background-color: grey;
   /* margin-bottom: -10rem; */
+}
+.rooms-container {
+  border: tomato solid 0.2rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  position: fixed;
+}
+.room-card {
+  background-color: rgb(243, 242, 237);
+  height: 300px;
+  width: 90%;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+.room-description {
+  position: relative;
+  background: white;
+  width: 70%;
+  float: right;
+  height: 90%;
+}
+.room-pics {
+  float: left;
+  background: white;
+  height: 90%;
+  width: 28%;
+}
+.pic-small {
+  height: 180px;
+  width: 220px;
+  border-radius: 0.3rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
 }

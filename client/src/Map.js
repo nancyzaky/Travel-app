@@ -19,7 +19,7 @@ const Map = ({ long, lat, address }) => {
   };
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCsjMQg37KUrzfB45YDXRTGKHfeSHWCKTk",
+    googleMapsApiKey:
   });
 
   const [map, setMap] = useState(null);
