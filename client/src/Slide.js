@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 
-const Slide = ({ pics }) => {
+const Slide = ({ pics, closePicsModal }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
@@ -23,23 +23,26 @@ const Slide = ({ pics }) => {
     });
   };
   return (
-    <section className="slide">
-      <HiArrowCircleLeft className="arrow-left" onClick={handlePrev} />
-      <HiArrowCircleRight className="arrow-right" onClick={handleNext} />
-      {pics.map((pic, index) => {
-        console.log(index, currentIndex);
-        return (
-          <div
-            className={currentIndex === index ? "hide active" : "hide"}
-            key={pic.id}
-          >
-            {index === currentIndex && (
-              <img src={pic.url} alt="pic" className="slide-img " />
-            )}
-          </div>
-        );
-      })}
-    </section>
+    <div className="slide-container">
+      >
+      <aside className="slide">
+        <HiArrowCircleLeft className="arrow-left" onClick={handlePrev} />
+        <HiArrowCircleRight className="arrow-right" onClick={handleNext} />
+        {pics.map((pic, index) => {
+          console.log(index, currentIndex);
+          return (
+            <div
+              className={currentIndex === index ? "hide active" : "hide"}
+              key={pic.id}
+            >
+              {index === currentIndex && (
+                <img src={pic.url} alt="pic" className="slide-img " />
+              )}
+            </div>
+          );
+        })}
+      </aside>
+    </div>
   );
 };
 

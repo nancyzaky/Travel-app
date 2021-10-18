@@ -3,9 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import { RiParkingLine } from "react-icons/ri";
 import { CgGym } from "react-icons/cg";
 import { GrSwim } from "react-icons/gr";
+import { AiFillCar } from "react-icons/ai";
 import { Load } from "./Load";
 import Map from "./Map";
-import Slide from "./Slide";
+import HotelSlide from "./HotelSlide";
+
 const Details = () => {
   const [pics, setPics] = useState([]);
   // const [hotelViews, setHotelViews] = useState([]);
@@ -42,39 +44,55 @@ const Details = () => {
           <li className="list-items">
             <Link to={`/hotel/${id}/rooms`}>Rooms</Link>
           </li>
+          <li className="list-items">
+            <Link to={`/hotel/${id}/restaurants`}>Restaurants</Link>
+          </li>
         </ul>
-        <Slide pics={pics} />
+        <HotelSlide pics={pics} />
+        <br></br>
+        <hr className="big-line"></hr>
+
         <div
           style={{
             height: "100px",
             width: "100%",
-            border: "tomato solid 0.2rem",
-            marginTop: "4rem",
+            // border: "tomato solid 0.2rem",
+            marginTop: "2rem",
+            marginBottom: "2rem",
           }}
         >
-          <section
-            style={{
-              border: "tomato solid 0.2rem",
-            }}
-          >
-            <h5>Hotel features</h5>
-            <ul className="features-cont">
-              <li className="features-list">
-                <span>parking</span> {features.parking && <RiParkingLine />}
-              </li>
-              <li className="features-list">
-                <span>Gym</span>
-                {features.gym && <CgGym />}
-              </li>
-              <li className="features-list">
-                <span>Pool</span>
-                {features.pool && <GrSwim />}
-              </li>
-            </ul>
-          </section>
+          {/* <section
+          // style={{
+          //   border: "tomato solid 0.2rem",
+          // }}
+          > */}
+          <h4 style={{ color: "grey", marginBottom: "1rem" }}>
+            Hotel Features:
+          </h4>
+          <ul className="features-cont">
+            <li className="features-list">
+              <span>parking</span> {features.parking && <AiFillCar />}
+            </li>
+            <li className="features-list">
+              <span>Gym</span>
+              {features.gym && <CgGym />}
+            </li>
+            <li className="features-list">
+              <span>Pool</span>
+              {features.pool && <GrSwim />}
+            </li>
+          </ul>
+          <hr className="big-line"></hr>
+          <section>
+            <Map lat={lat} long={long} address={address} />
+          </section>{" "}
         </div>
-        <Map lat={lat} long={long} address={address} />
       </li>
+
+      {/* <hr className="big-line"></hr>
+      <section>
+        <Map lat={lat} long={long} address={address} />
+      </section> */}
     </>
   );
 };

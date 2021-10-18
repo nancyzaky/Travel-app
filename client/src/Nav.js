@@ -26,7 +26,9 @@ const Nav = ({ user, changeUser }) => {
             fontSize: "2rem",
           }}
         />
-        {user.name && <p>{`Hi  ${user.name}`}</p>}
+        <section className="user-name">
+          {user.name && <p>{`Hi  ${user.name}`}</p>}
+        </section>
       </div>
       <nav className={showNav ? "side active" : "side"}>
         <ul onClick={handleSubmenu} style={{ width: "100%" }}>
@@ -42,7 +44,7 @@ const Nav = ({ user, changeUser }) => {
               <li className="nav-links" key={item.id}>
                 <Link to={item.path}>
                   {item.icon}
-                  <span> {item.title}</span>
+                  <span className="nav-span"> {item.title}</span>
                 </Link>
               </li>
             );
@@ -50,7 +52,7 @@ const Nav = ({ user, changeUser }) => {
           <li className="nav-links" onClick={handleLogOut}>
             <Link to="/">
               <RiLogoutBoxLine />
-              <span>Log Out</span>
+              <span className="nav-span">Log Out</span>
             </Link>
           </li>
         </ul>

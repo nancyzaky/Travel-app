@@ -152,15 +152,6 @@ const Room = ({ room, user }) => {
           </button>
           {error && <p>{errorMessage}</p>}
         </section>
-        {checkOut && (
-          <Checkout
-            user={user}
-            errorMessage={errorMessage}
-            daysCount={daysCount}
-            startDate={startDate}
-            endDate={endDate}
-          />
-        )}
       </li>
     </>
   );

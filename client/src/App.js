@@ -9,6 +9,7 @@ import Login from "./Login";
 import Rooms from "./Rooms";
 import Details from "./Details";
 import Cart from "./Cart";
+import Three from "./Three";
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {

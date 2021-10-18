@@ -2,6 +2,7 @@ import React from "react";
 import { FiStar } from "react-icons/fi";
 
 const Review = ({ review }) => {
+  console.log(review.name);
   return (
     <>
       <li>

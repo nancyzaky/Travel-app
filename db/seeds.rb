@@ -18,7 +18,7 @@ hotels = Hotel.create!([{location:"7500 E Doubletree Ranch Rd, Scottsdale, AZ 85
       # t.boolean :fridge
       # t.boolean :hair_dryer
 features = Feature.create!([{parking:true, pool:true, gym:true, hotel_id:1}, {parking:true, pool:true, gym:true, hotel_id:2}])
-rooms= Room.create!([{price:150, description:"King Size Room", hotel_id:1, }, {price:250, description:"Double room", hotel_id:2}])
+rooms= Room.create!([{price:150, description:"King Size Room", hotel_id:1 }, {price:250, description:"Double room", hotel_id:2}])
 
 
 

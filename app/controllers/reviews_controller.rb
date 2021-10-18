@@ -5,6 +5,10 @@ def create
 review = Review.create!(review_params)
 render json: review, status: :created
 end
+def index
+  reviews = Review.find_by(room_id:params[:id])
+  render json: reviews
+end
 private
 def review_params
 params.permit(:rating, :text, :room_id, :name)

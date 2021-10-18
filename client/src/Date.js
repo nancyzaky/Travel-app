@@ -16,7 +16,7 @@ const Date = ({ changeDate }) => {
           setDateRange(update);
           changeDate(update);
         }}
-        // withPortal
+        withPortal
         placeholderText="click to select dates"
       />
     </>
