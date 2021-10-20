@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 
 const Rating = ({ changeRate }) => {
@@ -10,7 +10,7 @@ const Rating = ({ changeRate }) => {
       count={5}
       onChange={ratingChanged}
       size={20}
-      // filledIcon={1}
+      // filledIcon={0}
       activeColor="#ffd700"
     />
   );
