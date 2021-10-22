@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Review from "./Review";
 import { IoMdClose } from "react-icons/io";
 
-const Modal = ({ room, closeModal }) => {
+const Modal = ({ room, closeModal, user }) => {
   const [reviews, setReviews] = useState([]);
   const fetchReviews = () => {
     fetch(`/rooms/${room.id}`).then((resp) => {
@@ -20,13 +20,15 @@ const Modal = ({ room, closeModal }) => {
     fetchReviews();
   }, []);
   return (
-    <aside className="modal">
-      <IoMdClose className="close" onClick={closeModal} />
-      <ul>
-        {reviews.map((review) => {
-          return <Review key={review.id} review={review} />;
-        })}
-      </ul>
+    <aside className="slide-container">
+      <div className="reviews-modal">
+        <IoMdClose className="close" onClick={closeModal} />
+        <ul>
+          {reviews.map((review) => {
+            return <Review key={review.id} review={review} user={user} />;
+          })}
+        </ul>
+      </div>
     </aside>
   );
 };

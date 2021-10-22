@@ -1,6 +1,8 @@
 import React from "react";
 import Hotels from "./Hotels";
 import Three from "./Three";
+import Footer from "./Footer";
+
 const Home = ({ user }) => {
   return (
     <div className="home">
@@ -15,6 +17,7 @@ const Home = ({ user }) => {
       <div className="bg"></div>
 
       <Hotels />
+      <Footer />
     </div>
   );
 };

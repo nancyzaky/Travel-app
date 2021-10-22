@@ -4,6 +4,8 @@ import { data } from "./Data";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { FcCalendar } from "react-icons/fc";
+
 const Nav = ({ user, changeUser }) => {
   const [showNav, setShowNav] = useState(false);
   const handleSubmenu = () => {
@@ -49,6 +51,13 @@ const Nav = ({ user, changeUser }) => {
               </li>
             );
           })}
+          <li className="nav-links">
+            <Link to={`/book`}>
+              <FcCalendar />
+
+              <span className="nav-span">Booking</span>
+            </Link>
+          </li>
           <li className="nav-links" onClick={handleLogOut}>
             <Link to="/">
               <RiLogoutBoxLine />

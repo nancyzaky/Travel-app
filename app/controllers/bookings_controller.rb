@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
-
+def index
+  booking = User.find(params[:user_id]).bookings
+  render json: booking
+end
 
 def available
   books = Room.find(params[:id]).bookings
@@ -44,7 +47,11 @@ end
 #     end
 
 # end
-
+def destroy
+  booking = Booking.find(params[:id])
+  booking.destroy
+  head :no_content
+end
   def create
  books = Room.find(params[:room_id]).bookings
  dates_arr_range = books.pluck(:start_date, :end_date)
@@ -77,7 +84,7 @@ end
   # end
   private
   def booking_params
-    params.permit(:start_date, :end_date, :user_id, :room_id)
+    params.permit(:start_date, :end_date, :user_id, :room_id, :duration)
   end
 
 def render_record_invalid(invalid)

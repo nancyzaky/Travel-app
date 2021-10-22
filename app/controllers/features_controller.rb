@@ -4,15 +4,15 @@ class FeaturesController < ApplicationController
     render json: feature
   end
 
-  def index
-    if params[:id]
-      feature = Hotel.find(params[:id]).feature
-      render json: feature
-    else
-      render json: Feature.all
-    end
+  # def index
+  #   if params[:id]
+  #     feature = Hotel.find(params[:id]).feature
+  #     render json: feature
+  #   else
+  #     render json: Feature.all
+  #   end
 
-  end
+  # end
 
   private
   def feature_params

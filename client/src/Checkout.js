@@ -26,6 +26,7 @@ const Checkout = ({
         start_date: startDate,
         end_date: endDate,
         room_id: room.id,
+        duration: daysCount,
       }),
     }).then((resp) => {
       if (resp.ok) {
@@ -59,17 +60,16 @@ const Checkout = ({
           </section>
         )}
         <p>{errorMessage}</p>
-        {booked && <h3>awesome!! Dates are available</h3>}
-        {booked && (
-          <h4>{`Total price for ${daysCount} days = ${
-            daysCount * room.price
-          }`}</h4>
-        )}
-        {booked && (
-          <button className="btn" onClick={handleCart}>
-            Add To Cart
-          </button>
-        )}
+        {/* {booked && <h3>awesome!! Dates are available</h3>} */}
+
+        <h4>{`Total price for ${daysCount} days = ${
+          daysCount * room.price
+        }`}</h4>
+
+        <button className="btn" onClick={handleCart}>
+          Add To Cart
+        </button>
+
         {success && (
           <h1>{`Congratulations ${user.name} your Booking is Confirmed`}</h1>
         )}

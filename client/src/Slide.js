@@ -23,7 +23,12 @@ const Slide = ({ pics, closePicsModal }) => {
     });
   };
   return (
-    <div className="slide-container">
+    <div
+      className="slide-container"
+      onClick={(e) => {
+        closePicsModal(e);
+      }}
+    >
       <aside className="slide">
         <HiArrowCircleLeft className="arrow-left" onClick={handlePrev} />
         <HiArrowCircleRight className="arrow-right" onClick={handleNext} />

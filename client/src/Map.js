@@ -24,9 +24,10 @@ const Map = ({ long, lat, address }) => {
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={{
-        width: "1000px",
-        height: "400px",
+        height: "300px",
         marginTop: "3rem",
+        marginBottom: "3rem",
+        width: "300px",
       }}
       center={center}
       zoom={10}

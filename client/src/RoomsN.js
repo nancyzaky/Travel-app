@@ -30,6 +30,7 @@ const RoomsN = ({ room, user }) => {
   };
   const closeCheckOut = () => {
     setCheckOut(false);
+    setErrorMessage("");
   };
   const changeErrorMessage = (message) => {
     setErrorMessage(message);
@@ -120,8 +121,12 @@ const RoomsN = ({ room, user }) => {
   const showPics = () => {
     setPicsModal(!picsModal);
   };
-  const closePicsModal = () => {
-    setPicsModal(false);
+  const closePicsModal = (e) => {
+    console.log(e.target.classList);
+    if (e.target.classList.contains("slide-container")) {
+      console.log("left");
+      setPicsModal(false);
+    }
   };
   return (
     <div
@@ -150,6 +155,8 @@ const RoomsN = ({ room, user }) => {
         />
       )}
       <div className="room-card">
+        {modal && <Modal room={room} closeModal={closeModal} user={user} />}
+
         <div className="room-description ">
           <h5 style={{ marginTop: "1rem", marginLeft: "1rem" }}>Features</h5>
           <hr className="hr-line"></hr>
@@ -236,11 +243,11 @@ const RoomsN = ({ room, user }) => {
           </ul>
           <hr className="hr-line"></hr>
           <section style={{ paddingLeft: "1rem" }}>
-            <ul style={{ display: "flex" }}>
-              <li style={{ paddingRight: "20rem" }}>
+            <ul style={{ display: "flex", paddingRight: "20rem" }}>
+              <li>
                 <Date changeDate={changeDate} />
               </li>
-              <li>
+              <li style={{ paddingLeft: "5rem" }}>
                 <button
                   type="submit"
                   onClick={() => {
@@ -277,11 +284,10 @@ const RoomsN = ({ room, user }) => {
           </form>
 
           {notUser && <h4>Please Log in To Leave a review</h4>}
-
-          {modal && <Modal room={room} closeModal={closeModal} />}
         </div>
         <div className="room-pics">
           <img src={room.pictures[0].url} alt="pic" className="pic-small" />
+          <br></br>
           <span className="cam" onClick={showPics}>
             <BsCameraFill /> {room.pictures.length}
           </span>
@@ -299,7 +305,7 @@ const RoomsN = ({ room, user }) => {
           <h4
             style={{
               marginTop: "1rem",
-              marginLeft: "2rem",
+              // marginLeft: "2rem",
               color: "grey",
             }}
           >

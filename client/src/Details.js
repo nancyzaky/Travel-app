@@ -47,52 +47,53 @@ const Details = () => {
           <li className="list-items">
             <Link to={`/hotel/${id}/restaurants`}>Restaurants</Link>
           </li>
+          <li className="list-items">
+            <Link to={`/hotel/${id}/restaurants`}>Flights</Link>
+          </li>
+          <li className="list-items">
+            <Link to={`/hotel/${id}/restaurants`}>Travel Restrictions</Link>
+          </li>
+          <li className="list-items">
+            <Link to={`/hotel/${id}/attractions`}>Attractions</Link>
+          </li>
         </ul>
-        <HotelSlide pics={pics} />
-        <br></br>
-        <hr className="big-line"></hr>
-
-        <div
+        <section>
+          <HotelSlide pics={pics} />
+          <br></br>
+          <hr className="big-line"></hr>
+        </section>
+        {/* <div
           style={{
             height: "100px",
             width: "100%",
-            // border: "tomato solid 0.2rem",
+            border: "tomato solid 0.2rem",
             marginTop: "2rem",
             marginBottom: "2rem",
           }}
-        >
-          {/* <section
-          // style={{
-          //   border: "tomato solid 0.2rem",
-          // }}
-          > */}
-          <h4 style={{ color: "grey", marginBottom: "1rem" }}>
-            Hotel Features:
-          </h4>
-          <ul className="features-cont">
-            <li className="features-list">
-              <span>parking</span> {features.parking && <AiFillCar />}
-            </li>
-            <li className="features-list">
-              <span>Gym</span>
-              {features.gym && <CgGym />}
-            </li>
-            <li className="features-list">
-              <span>Pool</span>
-              {features.pool && <GrSwim />}
-            </li>
-          </ul>
+        > */}
+        <ul className="features-cont">
+          <li className="features-list">
+            <h4 style={{ color: "grey" }}>Hotel Features:</h4>
+          </li>
+          <li className="features-list">
+            <span>parking</span> {features.parking && <AiFillCar />}
+          </li>
+          <li className="features-list">
+            <span>Gym</span>
+            {features.gym && <CgGym />}
+          </li>
+          <li className="features-list">
+            <span>Pool</span>
+            {features.pool && <GrSwim />}
+          </li>
+        </ul>
+        <hr className="big-line"></hr>
+        <section>
+          <Map lat={lat} long={long} address={address} />
           <hr className="big-line"></hr>
-          <section>
-            <Map lat={lat} long={long} address={address} />
-          </section>{" "}
-        </div>
+        </section>{" "}
+        {/* </div> */}
       </li>
-
-      {/* <hr className="big-line"></hr>
-      <section>
-        <Map lat={lat} long={long} address={address} />
-      </section> */}
     </>
   );
 };

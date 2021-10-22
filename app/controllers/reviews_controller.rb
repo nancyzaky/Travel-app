@@ -7,8 +7,17 @@ review = Review.create!(review_params)
 render json: review, status: :created
 end
 def index
-  reviews = Review.find_by(room_id:params[:id])
+  if (params[:id])
+      reviews = Review.find_by(room_id:params[:id])
+  else
+    reviews= Review.all
+  end
   render json: reviews
+end
+def update
+review = Review.find(params[:id])
+review.update(review_params)
+render json: review
 end
 private
 
