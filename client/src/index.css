@@ -386,16 +386,16 @@ body,
 
 .shadow:hover {
   cursor: pointer;
-  transform: scale(1.07);
+  transform: scale(1.02);
   box-shadow: 0 10px 10px 4px rgb(214, 241, 240);
   transition: transform 0.2s;
 }
-/* .room-card:hover {
+.room-card:hover {
   cursor: pointer;
-  transform: scale(1.01);
-  box-shadow: 0 10px 10px 4px grey;
+  /* transform: scale(1.01); */
+  box-shadow: 0 10px 10px 4px rgb(212, 214, 238);
   transition: transform 0.2s;
-} */
+}
 .list {
   padding-left: 4rem;
   display: flex;

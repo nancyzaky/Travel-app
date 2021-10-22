@@ -59,7 +59,7 @@ const Checkout = ({
               .slice(0, 16)} and ${endDate.toString().slice(0, 16)}`}</p>
           </section>
         )}
-        <p>{errorMessage}</p>
+
         {/* {booked && <h3>awesome!! Dates are available</h3>} */}
 
         <h4>{`Total price for ${daysCount} days = ${
@@ -73,6 +73,7 @@ const Checkout = ({
         {success && (
           <h1>{`Congratulations ${user.name} your Booking is Confirmed`}</h1>
         )}
+        <h4 style={{ color: "red" }}>{errorMessage}</h4>
       </aside>
     </div>
   );
