@@ -16,7 +16,7 @@ end
 
   private
   def hotel_params
-    params.permit(:location, :image, :lat, :long)
+    params.permit(:location, :image, :lat, :long, :city)
   end
 
   def render_not_found

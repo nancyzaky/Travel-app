@@ -1,9 +1,9 @@
 import react, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Attraction from "./Attraction";
 import Map from "./Map";
 
-const Attractions = () => {
+const Attractions = ({ user }) => {
   const { id } = useParams();
   const [attractions, setAttractions] = useState([]);
   const fetchUrl = () => {
@@ -20,23 +20,28 @@ const Attractions = () => {
 
   return (
     <>
+      <Link to={`/hotel/${id}`}>Back to Hotel</Link>
+      <button
+        className="btn"
+        onClick={() => {
+          fetch(`/hotels/${id}/attractions_ordered`)
+            .then((resp) => resp.json())
+            .then((d) => setAttractions(d));
+        }}
+      >
+        Order by Closest
+      </button>
       <ul
         style={{
           width: "100%",
-          margin: "10",
           paddingTop: "2rem",
-          paddingLeft: "6rem",
+          textAlign: "center",
         }}
       >
         {attractions.map((item) => {
-          return <Attraction item={item} />;
+          return <Attraction item={item} key={item.id} user={user} />;
         })}
       </ul>
-      {/* <Map
-        lat={parseInt(attractions[0].lat)}
-        long={parseInt(attractions[0].long)}
-        address={attractions[0].location}
-      /> */}
     </>
   );
 };

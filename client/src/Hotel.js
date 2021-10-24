@@ -16,7 +16,7 @@ const Hotel = ({ hotel }) => {
         className="hotel-pic"
         onClick={handleClick}
       />
-      <h3 className="hotel-name">{hotel.location}</h3>
+      <h3 className="hotel-name">{hotel.city}</h3>
       {/* <Rating /> */}
     </li>
   );

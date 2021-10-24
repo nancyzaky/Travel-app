@@ -47,7 +47,6 @@ const RoomsN = ({ room, user }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           room_id: room.id,
-          user_id: user.id,
           text: comment,
           rating: rate,
           name: user.name,
@@ -82,30 +81,6 @@ const RoomsN = ({ room, user }) => {
           }
         }
       );
-
-      // fetch("/bookings", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     user_id: user.id,
-      //     start_date: startDate,
-      //     end_date: endDate,
-      //     room_id: room.id,
-      //   }),
-      // }).then((resp) => {
-      //   if (resp.ok) {
-      //     resp.json().then((d) => {
-      //       setDaysCount(() => calculateDaysAndPrice(startDate, endDate));
-      //       setBooked(true);
-      //     });
-      //   } else {
-      //     resp.json().then((errors) => {
-      //       setError(true);
-      //       setErrorMessage(errors.error);
-      //       console.log(errors);
-      //     });
-      //   }
-      // });
     } else {
       setError(true);
       setErrorMessage("Please Log In first");
@@ -295,7 +270,6 @@ const RoomsN = ({ room, user }) => {
           <h2
             style={{
               marginTop: "1rem",
-              // marginLeft: "4rem",
               textAlign: "center",
               color: "pink",
             }}
@@ -305,7 +279,6 @@ const RoomsN = ({ room, user }) => {
           <h4
             style={{
               marginTop: "1rem",
-              // marginLeft: "2rem",
               color: "grey",
             }}
           >

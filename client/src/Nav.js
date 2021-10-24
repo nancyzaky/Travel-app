@@ -5,6 +5,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { FcCalendar } from "react-icons/fc";
+import { GiDutchBike } from "react-icons/gi";
 
 const Nav = ({ user, changeUser }) => {
   const [showNav, setShowNav] = useState(false);
@@ -56,6 +57,13 @@ const Nav = ({ user, changeUser }) => {
               <FcCalendar />
 
               <span className="nav-span">Booking</span>
+            </Link>
+          </li>
+          <li className="nav-links">
+            <Link to={`/activity`}>
+              <GiDutchBike style={{ fontSize: "1.5rem" }} />
+
+              <span className="nav-span">Activities</span>
             </Link>
           </li>
           <li className="nav-links" onClick={handleLogOut}>

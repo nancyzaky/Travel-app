@@ -48,7 +48,7 @@ const Details = () => {
             <Link to={`/hotel/${id}/restaurants`}>Restaurants</Link>
           </li>
           <li className="list-items">
-            <Link to={`/hotel/${id}/restaurants`}>Flights</Link>
+            <Link to={`/hotel/${id}/flights`}>Flights</Link>
           </li>
           <li className="list-items">
             <Link to={`/hotel/${id}/restaurants`}>Travel Restrictions</Link>
@@ -62,15 +62,6 @@ const Details = () => {
           <br></br>
           <hr className="big-line"></hr>
         </section>
-        {/* <div
-          style={{
-            height: "100px",
-            width: "100%",
-            border: "tomato solid 0.2rem",
-            marginTop: "2rem",
-            marginBottom: "2rem",
-          }}
-        > */}
         <ul className="features-cont">
           <li className="features-list">
             <h4 style={{ color: "grey" }}>Hotel Features:</h4>

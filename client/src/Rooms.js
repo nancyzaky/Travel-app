@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Room from "./Room";
+import { useParams, Link } from "react-router-dom";
+import { FaHotel } from "react-icons/fa";
+// import Room from "./Room";
 import RoomsN from "./RoomsN";
 const Rooms = ({ user }) => {
   const [rooms, setRooms] = useState([]);
@@ -18,6 +19,10 @@ const Rooms = ({ user }) => {
   }, []);
   return (
     <div>
+      <Link to={`/hotel/${id}`}>
+        Back to Hotel
+        <span></span>
+      </Link>
       <ul className="rooms-container">
         {rooms.map((room) => {
           console.log(rooms);

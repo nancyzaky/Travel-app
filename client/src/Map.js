@@ -27,7 +27,7 @@ const Map = ({ long, lat, address }) => {
         height: "300px",
         marginTop: "3rem",
         marginBottom: "3rem",
-        width: "300px",
+        width: "900px",
       }}
       center={center}
       zoom={10}

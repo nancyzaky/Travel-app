@@ -12,6 +12,8 @@ import Cart from "./Cart";
 import Three from "./Three";
 import Booking from "./Booking";
 import Attractions from "./Attractions";
+import Flight from "./Flight";
+import Activity from "./Activity";
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
@@ -49,13 +51,19 @@ function App() {
             </Route>
 
             <Route exact path="/hotel/:id/attractions">
-              <Attractions />
+              <Attractions user={user} />
             </Route>
-            <Route path="/hotel/:id">
+            <Route exact path="/hotel/:id">
               <Details />
+            </Route>
+            <Route exact path="/hotel/:id/flights">
+              <Flight />
             </Route>
             <Route path="/book">
               <Booking user={user} />
+            </Route>
+            <Route path="/activity">
+              <Activity user={user} />
             </Route>
             <Route path="/:id/cart">
               <Cart />

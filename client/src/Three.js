@@ -21,7 +21,7 @@ export function Earth(props) {
       <pointLight position={[-10, 0, -20]} />
       <Sky
         distance={45000}
-        // sunPosition={[5, 5, 4]}
+        sunPosition={[5, -5, -4]}
         inclination={0}
         azimuth={0.25}
       />

@@ -11,6 +11,7 @@ resources :hotels, only: [:index, :create, :show] do
   resources :features, only: [:create]
 
 end
+resources :activitys, only: [:create, :show]
 resources :pictures, only: [:create]
 resources :reviews, only: [:update]
 post "/login", to: "sessions#create"
@@ -23,8 +24,10 @@ get "/rooms/:id/reviews", to: "reviews#index"
 get "/rooms/:id/bookings/:start_date/:end_date", to: "bookings#available"
 post "/hotels/:id/attractions", to: "attractions#create"
 get "hotels/:id/attractions", to: "attractions#show"
+get "hotels/:id/attractions_ordered", to: "attractions#attractions_ordered"
 
-"# get bookings/:id, to: bookings#show"
+
+# "# get bookings/:id, to: bookings#show"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

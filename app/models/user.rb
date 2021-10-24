@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
 }
 has_many :rooms, through: :bookings
-# has_many :reviews, :through => :bookings, :source => rooms
+has_many :hotels, through: :rooms
+ has_many :reviews, through: :rooms
+ has_many :activitys
+ has_many :attractions , through: :activities
 has_many :bookings
 end
