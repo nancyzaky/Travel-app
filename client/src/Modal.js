@@ -23,7 +23,7 @@ const Modal = ({ room, closeModal, user }) => {
     <aside className="slide-container">
       <div className="reviews-modal">
         <IoMdClose className="close" onClick={closeModal} />
-        <ul>
+        <ul claasName="reviews-cont">
           {reviews.map((review) => {
             return <Review key={review.id} review={review} user={user} />;
           })}

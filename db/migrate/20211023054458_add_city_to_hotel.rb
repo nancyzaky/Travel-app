@@ -3,3 +3,4 @@ class AddCityToHotel < ActiveRecord::Migration[6.1]
     add_column :hotels, :city, :string
   end
 end
+

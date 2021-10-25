@@ -1,4 +1,4 @@
-class ActivitysController < ApplicationController
+class ActivitiesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   def create
@@ -10,17 +10,27 @@ class ActivitysController < ApplicationController
   activity = Activity.create!(activity_params)
   render json: activity, status: :created
   end
-  end
 
+  end
   def show
-activity = User.find(params[:id]).activitys
+activity = User.find(params[:id]).activities
 render json: activity, include: :attraction
   end
+def destroy
+  activity = Activity.find(params[:id])
+  activity.destroy
+  head :no_content
+end
 
+def update
+  activity = Activity.find(params[:id])
+  activity.update(activity_params)
+  render json: activity
+end
   private
 
   def activity_params
-params.permit(:user_id, :attraction_id)
+params.permit(:user_id, :attraction_id, :date)
 end
 def render_not_found
 render json: {error: "No attraction found"},  status: :not_found
@@ -31,3 +41,4 @@ render json: {errors: invalid.record.errors.full_messages }, status: :unprocessa
 
 end
 end
+

@@ -13,7 +13,7 @@ import Three from "./Three";
 import Booking from "./Booking";
 import Attractions from "./Attractions";
 import Flight from "./Flight";
-import Activity from "./Activity";
+import Activities from "./Activities";
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
@@ -63,7 +63,7 @@ function App() {
               <Booking user={user} />
             </Route>
             <Route path="/activity">
-              <Activity user={user} />
+              <Activities user={user} />
             </Route>
             <Route path="/:id/cart">
               <Cart />

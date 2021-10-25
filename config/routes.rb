@@ -11,9 +11,9 @@ resources :hotels, only: [:index, :create, :show] do
   resources :features, only: [:create]
 
 end
-resources :activitys, only: [:create, :show]
+resources :activities, only: [:create, :show, :destroy, :update]
 resources :pictures, only: [:create]
-resources :reviews, only: [:update]
+resources :reviews, only: [:update, :destroy]
 post "/login", to: "sessions#create"
 get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"

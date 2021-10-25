@@ -14,6 +14,11 @@ def index
   end
   render json: reviews
 end
+def destroy
+  review = Review.find(params[:id])
+  review.destroy
+  head :no_content
+end
 def update
 review = Review.find(params[:id])
 review.update(review_params)

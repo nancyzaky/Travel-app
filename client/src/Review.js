@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import { FiStar } from "react-icons/fi";
+import React, { useState, useEffect } from "react";
+import { GrStar } from "react-icons/gr";
+import { FiEdit } from "react-icons/fi";
+import { BsTrash } from "react-icons/bs";
 
 const Review = ({ review, user }) => {
   const [edit, setEdit] = useState(false);
+  const [stars, setStars] = useState("");
   const [editedText, setEditedText] = useState(review.text);
   const handleEdit = (key) => {
     setEdit(true);
@@ -18,12 +21,35 @@ const Review = ({ review, user }) => {
 
     setEdit(false);
   };
+  const handleDelete = (key) => {
+    fetch(`/reviews/${key}`, {
+      method: "DELETE",
+    })
+      .then((resp) => resp.json())
+      .then((d) => console.log(d));
+
+    setEdit(false);
+    setEditedText("");
+  };
+  const countStar = (num) => {
+    let word = "";
+    for (let i = 0; i < num; i++) {
+      word += "★";
+    }
+    return word;
+  };
+  useEffect(() => {
+    let allStars = countStar(review.rating);
+    setStars(allStars);
+  }, []);
   console.log(review, user);
   return (
     <>
-      <li>
-        <h3>{review.name} said:</h3>
-        <h3>{review.rating}</h3>
+      <li className="review-list">
+        <h4 className="review-name">{review.name} said:</h4>
+        <br></br>
+        <h5>{editedText}</h5>
+        <h5>{stars}</h5>
         {edit && (
           <form>
             <input
@@ -33,23 +59,35 @@ const Review = ({ review, user }) => {
                 setEditedText(e.target.value);
               }}
             ></input>
-            <button
-              className="btn"
-              onClick={() => {
-                handleEditSub(review.id);
-              }}
-            >
-              Submit Edited post
-            </button>
+
+            {/* Submit Edited post
+            </button> */}
           </form>
         )}
-        <p>{editedText}</p>
-        {user.name === review.name && (
-          <button className="btn" onClick={handleEdit}>
-            Edit review
+
+        {user.name === review.name && edit && (
+          <button
+            className="btn"
+            onClick={() => {
+              handleEditSub(review.id);
+            }}
+          >
+            Submit Edited review
           </button>
         )}
       </li>
+      <section>
+        <span style={{ float: "right", color: "green" }}>
+          <FiEdit onClick={handleEdit} />
+        </span>
+        <span style={{ float: "right", color: "red" }}>
+          <BsTrash
+            onClick={() => {
+              handleDelete(review.id);
+            }}
+          />
+        </span>
+      </section>
     </>
   );
 };
