@@ -90,6 +90,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
+
+
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
@@ -110,4 +113,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+
+config.action_mailer.delivery_method = :smtp
+ host = 'localhost:3000' #replace with your own url
+config.action_mailer.default_url_options = { :host => 'localhost:4000', protocol: 'http'}
+
+config.action_mailer.smtp_settings = {
+  :address              => "nancyzaky29.gmail.com",
+  :port                 => 587,
+  :user_name            => "Nancy Zaky",
+  :password             => "Data_123",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
 end

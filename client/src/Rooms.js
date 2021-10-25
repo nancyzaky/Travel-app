@@ -15,17 +15,27 @@ const Rooms = ({ user }) => {
         setRooms(data);
       });
   };
+  const [cursorX, setCursorX] = useState(null);
+  const [cursorY, setCursorY] = useState(null);
+  window.addEventListener("mousemove", (e) => {
+    setCursorX(e.pageX);
+    setCursorY(e.pageY);
+  });
   useEffect(() => {
     fetchUrl();
   }, []);
   return (
     <div>
+      <div
+        className="cursor"
+        style={{ left: cursorX + "px", top: cursorY + "px" }}
+      ></div>
       <Link to={`/hotel/${id}`}>
         <span
           style={{
             color: "lightBlue",
             fontSize: "30px",
-            textShadow: "0px 5px 5px",
+            textShadow: "0px 10px 10px",
           }}
         >
           <TiArrowBack />
@@ -33,7 +43,7 @@ const Rooms = ({ user }) => {
         <h4
           style={{
             fontSize: "20px",
-            textShadow: "0px 11px 11px",
+            textShadow: "0px 13px 13px ",
             color: "grey",
           }}
         >

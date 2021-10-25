@@ -56,18 +56,18 @@ function App() {
             <Route exact path="/hotel/:id">
               <Details />
             </Route>
-            <Route exact path="/hotel/:id/flights">
+            {/* <Route exact path="/hotel/:id/flights">
               <Flight />
-            </Route>
+            </Route> */}
             <Route path="/book">
               <Booking user={user} />
             </Route>
             <Route path="/activity">
               <Activities user={user} />
             </Route>
-            <Route path="/:id/cart">
+            {/* <Route path="/:id/cart">
               <Cart />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
       </div>

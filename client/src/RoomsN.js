@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsCameraFill } from "react-icons/bs";
 import { FcCheckmark } from "react-icons/fc";
@@ -21,6 +21,7 @@ const RoomsN = ({ room, user }) => {
   const [picsModal, setPicsModal] = useState(false);
   const [daysCount, setDaysCount] = useState(0);
   const [booked, setBooked] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const showModal = () => {
     setModal(true);
@@ -55,6 +56,7 @@ const RoomsN = ({ room, user }) => {
     }
     setComment("");
     setRate(0);
+    setSuccess(true);
   };
   const calculateDaysAndPrice = (firstDay, secondDay) => {
     const oneDay = 24 * 60 * 60 * 1000;
@@ -103,6 +105,12 @@ const RoomsN = ({ room, user }) => {
       setPicsModal(false);
     }
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMessage("");
+      setSuccess(false);
+    }, 3000);
+  }, [errorMessage, success]);
   return (
     <div
       style={{
@@ -226,8 +234,13 @@ const RoomsN = ({ room, user }) => {
                 <button
                   type="submit"
                   onClick={() => {
-                    setCheckOut(true);
-                    // handleBook();
+                    if (startDate && endDate) {
+                      setCheckOut(true);
+                    } else {
+                      setError(true);
+
+                      setErrorMessage("Please select start and end dates");
+                    }
                   }}
                   className="btn"
                 >
@@ -235,7 +248,7 @@ const RoomsN = ({ room, user }) => {
                 </button>
               </li>
             </ul>
-            {error && <p>{errorMessage}</p>}
+            {error && <h4 style={{ color: "red" }}>{errorMessage}</h4>}
           </section>
           <hr className="hr-line"></hr>
 
@@ -255,27 +268,33 @@ const RoomsN = ({ room, user }) => {
               }}
             ></input>
             <Rating changeRate={changeRate} />
+
             <button className="btn">Submit</button>
+            {!notUser && (
+              <aside className={success ? "success active" : "success"}>
+                <h6>Review Has Been Submitted</h6>
+              </aside>
+            )}
           </form>
 
           {notUser && <h4>Please Log in To Leave a review</h4>}
         </div>
         <div className="room-pics">
+          <h2
+            style={{
+              marginTop: "1rem",
+              textAlign: "center",
+              color: "rgb(247, 202, 201)",
+            }}
+          >
+            {room.specific.bed} Room
+          </h2>
           <img src={room.pictures[0].url} alt="pic" className="pic-small" />
           <br></br>
           <span className="cam" onClick={showPics}>
             <BsCameraFill /> {room.pictures.length}
           </span>
 
-          <h2
-            style={{
-              marginTop: "1rem",
-              textAlign: "center",
-              color: "pink",
-            }}
-          >
-            {room.specific.bed} Room
-          </h2>
           <h4
             style={{
               marginTop: "1rem",
@@ -284,8 +303,8 @@ const RoomsN = ({ room, user }) => {
           >
             Starts From ${room.price} Per Night
           </h4>
-          <section style={{ paddingTop: "3rem", fontWeight: "bold" }}>
-            <a href="#" onClick={showModal}>
+          <section style={{ paddingTop: "1.5rem", fontWeight: "bold" }}>
+            <a href="#" onClick={showModal} style={{ color: "grey" }}>
               Click to see all Reviews
             </a>
           </section>

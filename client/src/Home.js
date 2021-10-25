@@ -23,7 +23,8 @@ const Home = ({ user }) => {
             marginLeft: "65rem",
             width: "20rem",
             marginTop: "5rem",
-            textShadow: " 0px 13px 13px",
+            textShadow: "#FF2D95 0px 0px 75px",
+            color: "white",
           }}
         >
           <h1 style={{ paddingTop: "10rem" }}>

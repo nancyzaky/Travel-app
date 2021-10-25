@@ -2,6 +2,7 @@ import react, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Attraction from "./Attraction";
 import Map from "./Map";
+import { TiArrowBack } from "react-icons/ti";
 
 const Attractions = ({ user }) => {
   const { id } = useParams();
@@ -20,7 +21,26 @@ const Attractions = ({ user }) => {
 
   return (
     <>
-      <Link to={`/hotel/${id}`}>Back to Hotel</Link>
+      <Link to={`/hotel/${id}`}>
+        <span
+          style={{
+            color: "lightBlue",
+            fontSize: "30px",
+            textShadow: "0px 10px 10px",
+          }}
+        >
+          <TiArrowBack />
+        </span>{" "}
+        <h4
+          style={{
+            fontSize: "20px",
+            textShadow: "0px 13px 13px ",
+            color: "grey",
+          }}
+        >
+          Hotel
+        </h4>
+      </Link>
       <button
         className="btn"
         onClick={() => {

@@ -5,7 +5,7 @@ class Hotel < ApplicationRecord
    has_many :bookings, through: :rooms
    has_many :attractions
    has_one :feature
-   has_many :views
+   has_many :views, dependent: :destroy
    validates :lat, presence: true
    validates :long, presence: true
 

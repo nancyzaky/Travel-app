@@ -51,7 +51,12 @@ const Details = () => {
             <Link to={`/hotel/${id}/flights`}>Flights</Link>
           </li>
           <li className="list-items">
-            <Link to={`/hotel/${id}/restaurants`}>Travel Restrictions</Link>
+            <a
+              href="https://www.cdc.gov/coronavirus/2019-ncov/travelers/map-and-travel-notices.html"
+              target="_blank"
+            >
+              Travel Restrictions
+            </a>
           </li>
           <li className="list-items">
             <Link to={`/hotel/${id}/attractions`}>Attractions</Link>
