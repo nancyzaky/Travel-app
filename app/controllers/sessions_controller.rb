@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-        UserMailer.with(user: user).welcome_email.deliver_now
+
 
       session[:user_id] = user.id
       render json: user, status: :created
