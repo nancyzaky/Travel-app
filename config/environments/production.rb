@@ -119,12 +119,5 @@ config.action_mailer.delivery_method = :smtp
  host = 'localhost:3000' #replace with your own url
 config.action_mailer.default_url_options = { :host => 'localhost:4000', protocol: 'http'}
 
-config.action_mailer.smtp_settings = {
-  :address              => "nancyzaky29.gmail.com",
-  :port                 => 587,
-  :user_name            => "Nancy Zaky",
-  :password             => "Data_123",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+
 end
