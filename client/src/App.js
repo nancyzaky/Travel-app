@@ -56,9 +56,9 @@ function App() {
             <Route exact path="/hotel/:id">
               <Details />
             </Route>
-            {/* <Route exact path="/hotel/:id/flights">
+            <Route exact path="/hotel/:id/flights">
               <Flight />
-            </Route> */}
+            </Route>
             <Route path="/book">
               <Booking user={user} />
             </Route>
