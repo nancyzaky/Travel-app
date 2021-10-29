@@ -6,30 +6,27 @@ import { TiArrowBack } from "react-icons/ti";
 import RoomsN from "./RoomsN";
 const Rooms = ({ user }) => {
   const [rooms, setRooms] = useState([]);
-  let { id } = useParams();
-  const fetchUrl = () => {
-    fetch(`/hotels/${id}/rooms`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        setRooms(data);
-      });
-  };
   const [cursorX, setCursorX] = useState(null);
   const [cursorY, setCursorY] = useState(null);
   window.addEventListener("mousemove", (e) => {
     setCursorX(e.pageX);
     setCursorY(e.pageY);
   });
+  let { id } = useParams();
+  const fetchUrl = () => {
+    fetch(`/api/hotels/${id}/rooms`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        setRooms(data);
+      });
+  };
+
   useEffect(() => {
     fetchUrl();
   }, []);
   return (
-    <div>
-      <div
-        className="cursor"
-        style={{ left: cursorX + "px", top: cursorY + "px" }}
-      ></div>
+    <div style={{ width: "100%" }}>
       <Link to={`/hotel/${id}`}>
         <span
           style={{
@@ -39,7 +36,7 @@ const Rooms = ({ user }) => {
           }}
         >
           <TiArrowBack />
-        </span>{" "}
+        </span>
         <h4
           style={{
             fontSize: "20px",
@@ -52,10 +49,13 @@ const Rooms = ({ user }) => {
       </Link>
       <ul className="rooms-container">
         {rooms.map((room) => {
-          console.log(rooms);
           return <RoomsN room={room} user={user} key={room.id} />;
         })}
       </ul>
+      <div
+        className="cursor"
+        style={{ left: cursorX + "px", top: cursorY + "px" }}
+      ></div>
     </div>
   );
 };

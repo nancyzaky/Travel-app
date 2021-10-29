@@ -43,7 +43,7 @@ const RoomsN = ({ room, user }) => {
     if (!user.name) {
       setNotUser(true);
     } else {
-      fetch("/reviews", {
+      fetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -65,7 +65,7 @@ const RoomsN = ({ room, user }) => {
   };
   const handleBook = () => {
     if (user.name) {
-      fetch(`/rooms/${room.id}/bookings/${startDate}/${endDate}`).then(
+      fetch(`/api/rooms/${room.id}/bookings/${startDate}/${endDate}`).then(
         (resp) => {
           if (resp.ok) {
             resp.json().then((d) => {
@@ -260,7 +260,7 @@ const RoomsN = ({ room, user }) => {
             <label htmlFor="comment">Tell Us About Your Experience</label>
             <br></br>
             <input
-              style={{ height: "3rem", width: "35rem" }}
+              style={{ height: "3rem", width: "35rem", paddingLeft: "0.5rem" }}
               type="text"
               value={comment}
               onChange={(e) => {
@@ -284,7 +284,9 @@ const RoomsN = ({ room, user }) => {
             style={{
               marginTop: "1rem",
               textAlign: "center",
-              color: "rgb(247, 202, 201)",
+              color: "#444444",
+              textShadow:
+                "1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC",
             }}
           >
             {room.specific.bed} Room
@@ -298,13 +300,13 @@ const RoomsN = ({ room, user }) => {
           <h4
             style={{
               marginTop: "1rem",
-              color: "grey",
+              color: "black",
             }}
           >
             Starts From ${room.price} Per Night
           </h4>
           <section style={{ paddingTop: "1.5rem", fontWeight: "bold" }}>
-            <a href="#" onClick={showModal} style={{ color: "grey" }}>
+            <a href="#" onClick={showModal} style={{ color: "black" }}>
               Click to see all Reviews
             </a>
           </section>
