@@ -13,10 +13,11 @@ const Map = ({ long, lat, address }) => {
     lat: lat,
     lng: long,
   };
-
+  const MY_KEY = process.env.REACT_APP_API_KEY;
+  console.log(MY_KEY);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyCsjMQg37KUrzfB45YDXRTGKHfeSHWCKTk",
+    googleMapsApiKey: MY_KEY,
   });
 
   const [map, setMap] = useState(null);
@@ -27,7 +28,7 @@ const Map = ({ long, lat, address }) => {
         height: "300px",
         marginTop: "3rem",
         marginBottom: "3rem",
-        width: "900px",
+        width: "100%",
       }}
       center={center}
       zoom={10}
