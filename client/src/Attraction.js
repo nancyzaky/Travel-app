@@ -50,7 +50,7 @@ const Attraction = ({ item, user }) => {
 
         <img src={item.photo} alt="pic" className="attract-pic" />
 
-        <section style={{ float: "right" }}>
+        <section style={{ float: "right", height: "220px" }}>
           <h3 style={{ paddingBottom: "1rem", color: "red" }}>{item.name}</h3>
 
           <h4 style={{ paddingBottom: "1rem" }}>{item.description}</h4>
