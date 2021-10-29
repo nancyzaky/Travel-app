@@ -11,7 +11,7 @@ const Review = ({ review, user }) => {
     setEdit(true);
   };
   const handleEditSub = (key) => {
-    fetch(`/reviews/${key}`, {
+    fetch(`/api/api/reviews/${key}`, {
       method: "PATCH",
       body: JSON.stringify({ text: editedText }),
       headers: { "Content-Type": "application/json" },
@@ -22,7 +22,7 @@ const Review = ({ review, user }) => {
     setEdit(false);
   };
   const handleDelete = (key) => {
-    fetch(`/reviews/${key}`, {
+    fetch(`/api/reviews/${key}`, {
       method: "DELETE",
     })
       .then((resp) => resp.json())
@@ -30,6 +30,7 @@ const Review = ({ review, user }) => {
 
     setEdit(false);
     setEditedText("");
+    setStars("");
   };
   const countStar = (num) => {
     let word = "";
@@ -46,10 +47,38 @@ const Review = ({ review, user }) => {
   return (
     <>
       <li className="review-list">
-        <h4 className="review-name">{review.name} said:</h4>
-        <br></br>
-        <h5>{editedText}</h5>
-        <h5>{stars}</h5>
+        <section className="text">
+          <h4 className="review-name">{review.name} said:</h4>
+
+          <h5 style={{ color: "orange" }}>{stars}</h5>
+
+          <h5 style={{ paddingTop: "1rem", paddingBottom: "2rem" }}>
+            {editedText}
+          </h5>
+          <span style={{ color: "green" }}>
+            <FiEdit
+              onClick={handleEdit}
+              style={{
+                fontSize: "1.5rem",
+                marginRight: "1rem",
+              }}
+            />
+          </span>
+          <span
+            style={{
+              color: "red",
+              fontSize: "1.5rem",
+              paddingRight: "1rem",
+            }}
+          >
+            <BsTrash
+              onClick={() => {
+                handleDelete(review.id);
+              }}
+            />
+          </span>
+        </section>
+
         {edit && (
           <form>
             <input
@@ -59,9 +88,6 @@ const Review = ({ review, user }) => {
                 setEditedText(e.target.value);
               }}
             ></input>
-
-            {/* Submit Edited post
-            </button> */}
           </form>
         )}
 
@@ -76,18 +102,10 @@ const Review = ({ review, user }) => {
           </button>
         )}
       </li>
-      <section>
-        <span style={{ float: "right", color: "green" }}>
-          <FiEdit onClick={handleEdit} />
-        </span>
-        <span style={{ float: "right", color: "red" }}>
-          <BsTrash
-            onClick={() => {
-              handleDelete(review.id);
-            }}
-          />
-        </span>
-      </section>
+      <hr
+        className="big-line"
+        style={{ width: "90%", justifyContent: "center" }}
+      ></hr>
     </>
   );
 };
