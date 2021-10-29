@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 const Signup = () => {
   const history = useHistory();
@@ -15,7 +15,7 @@ const Signup = () => {
       setWrongPass(true);
       return;
     }
-    fetch("/users", {
+    fetch("/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -26,9 +26,8 @@ const Signup = () => {
       }),
     }).then((resp) => {
       if (resp.ok) {
-        setError(true);
+        // setError(true);
         resp.json().then((d) => {
-          console.log(d);
           setWrongPass(false);
           setName("");
           setEmail("");
@@ -46,10 +45,10 @@ const Signup = () => {
   return (
     <>
       <div>
-        <h1>Signup</h1>
-        <form onSubmit={handleSub}>
-          <label htmlFor="name" name="name" id="name">
-            Name:
+        <h1 className="login-header">Signup</h1>
+        <form onSubmit={handleSub} className="log-in">
+          <label htmlFor="name" name="name" id="name" className="label">
+            Name
           </label>
           <input
             value={name}
@@ -57,8 +56,14 @@ const Signup = () => {
               setName(e.target.value);
             }}
           ></input>
-          <label htmlFor="password" name="password" id="password">
-            password:
+          <br></br>
+          <label
+            htmlFor="password"
+            className="label-email"
+            name="password"
+            id="password"
+          >
+            Password
           </label>
           <input
             value={password}
@@ -67,13 +72,17 @@ const Signup = () => {
               setPassword(e.target.value);
             }}
           ></input>
+          <br></br>
           <label
             htmlFor="password_confirm"
             name="password_confirm"
             id="password_confirm"
+            className="label-email"
+            style={{ paddingRight: "2.7rem" }}
           >
-            confirm_password:
+            Confirm
           </label>
+
           <input
             value={passwordC}
             type="password"
@@ -81,8 +90,9 @@ const Signup = () => {
               setPasswordC(e.target.value);
             }}
           ></input>
-          <label htmlFor="email" name="email" id="email">
-            Email:
+          <br></br>
+          <label htmlFor="email" name="email" className="label" id="email">
+            Email
           </label>
           <input
             value={email}
@@ -90,7 +100,14 @@ const Signup = () => {
               setEmail(e.target.value);
             }}
           ></input>
-          <button type="submit">Submit</button>
+          <br></br>
+          <button
+            type="submit"
+            className="btn"
+            style={{ marginTop: "4rem", marginLeft: "16rem" }}
+          >
+            Submit
+          </button>
         </form>
         {wrongPass && <p>Passwords don't match, please try again</p>}
       </div>
