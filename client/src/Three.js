@@ -79,8 +79,18 @@ const Three = () => {
           left: "0px",
         }}
       >
+        {/* <div
+          style={{
+            color: "white",
+            poition: "absolute",
+            top: "40%",
+            backgroundColor: "transparent",
+          }}
+        >
+          <h3>Travel</h3>
+        </div> */}
         <Canvas colorManagement camera={{ fov: 40 }}>
-          <Suspense fallback={null}>
+          <Suspense fallback={Loading}>
             <Earth />
           </Suspense>
         </Canvas>
@@ -89,3 +99,7 @@ const Three = () => {
   );
 };
 export default Three;
+
+const Loading = () => {
+  return <p style={{ color: "red" }}>Loading...</p>;
+};
