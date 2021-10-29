@@ -1,7 +1,6 @@
 import React from "react";
 import Hotels from "./Hotels";
 import Three from "./Three";
-import Footer from "./Footer";
 import { GiAirplaneDeparture } from "react-icons/gi";
 
 const Home = ({ user }) => {
@@ -41,7 +40,6 @@ const Home = ({ user }) => {
       </div>
 
       <Hotels />
-      <Footer />
     </div>
   );
 };
