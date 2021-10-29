@@ -8,7 +8,7 @@ const Activity = ({ attr, handleDelete }) => {
   const [start, setStart] = useState(new Date(attr.date));
 
   const handleDeleteItem = () => {
-    fetch(`/activities/${attr.id}`, {
+    fetch(`/api/activities/${attr.id}`, {
       method: "DELETE",
     });
     handleDelete(attr.id);
@@ -17,7 +17,7 @@ const Activity = ({ attr, handleDelete }) => {
     setEditCalendar(true);
   };
   const handleChangeDate = () => {
-    fetch(`/activities/${attr.id}`, {
+    fetch(`/api/activities/${attr.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ date: start }),
@@ -28,22 +28,6 @@ const Activity = ({ attr, handleDelete }) => {
   };
   return (
     <>
-      {editCalendar && (
-        <>
-          <DatePicker
-            startDate={start}
-            selected={start}
-            onChange={(update) => {
-              setStart(update);
-            }}
-            withPortal
-            placeholderText="click to select planned date"
-          />
-          <button className="btn" onClick={handleChangeDate}>
-            Change Date
-          </button>
-        </>
-      )}
       <li key={attr.id} className="activity">
         <img src={attr.attraction.photo} alt="pic" className="hotel-pic" />
         <h4>
@@ -77,6 +61,22 @@ const Activity = ({ attr, handleDelete }) => {
             </span>
           </li>
         </ul>
+        {editCalendar && (
+          <>
+            <DatePicker
+              startDate={start}
+              selected={start}
+              onChange={(update) => {
+                setStart(update);
+              }}
+              withPortal
+              placeholderText="click to select planned date"
+            />
+            <button className="btn" onClick={handleChangeDate}>
+              Change Date
+            </button>
+          </>
+        )}
       </li>
       <hr className="big-line"></hr>
     </>

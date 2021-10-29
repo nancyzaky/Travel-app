@@ -12,11 +12,11 @@ const Activities = ({ user }) => {
     setAttractions(newArr);
   };
   const fetchUrl = () => {
-    fetch("/me").then((resp) => {
+    fetch("/api/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((data) => {
           if (data) {
-            fetch(`/activities/${data.id}`)
+            fetch(`/api/activities/${data.id}`)
               .then((resp) => resp.json())
               .then((data) => setAttractions(data));
           }
