@@ -15,9 +15,7 @@ import Attractions from "./Attractions";
 import Flight from "./Flight";
 import Activities from "./Activities";
 import Footer from "./Footer";
-require("dotenv").config();
 
-console.log(process.env.REACT_APP_API_KEY);
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
