@@ -8,6 +8,10 @@ const Flight = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [trips, setTrips] = useState({});
+
+  const MY_KEY = process.env.REACT_APP_FLIGHT_API_KEY;
+  const MY_KEY_ONE = process.env.REACT_APP_ORIGIN_API_KEY;
+  const MY_KEY_TWO = process.env.REACT_APP_RETURN_API_KEY;
   const fetchUrl = (e) => {
     e.preventDefault();
     fetch(
@@ -17,8 +21,7 @@ const Flight = () => {
         headers: {
           "x-rapidapi-host":
             "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-          "x-rapidapi-key":
-            "b174797d8emsh65e10716777fb21p1f8c35jsn9c8b67a2deb0",
+          "x-rapidapi-key": MY_KEY,
         },
       }
     )

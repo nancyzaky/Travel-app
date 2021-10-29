@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 const Modal = ({ room, closeModal, user }) => {
   const [reviews, setReviews] = useState([]);
   const fetchReviews = () => {
-    fetch(`/rooms/${room.id}`).then((resp) => {
+    fetch(`/api/rooms/${room.id}`).then((resp) => {
       if (resp.ok) {
         resp.json().then((d) => {
           console.log(d);

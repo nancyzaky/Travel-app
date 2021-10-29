@@ -47,7 +47,7 @@ const Room = ({ room, user }) => {
     if (!user.name) {
       setNotUser(true);
     } else {
-      fetch("/reviews", {
+      fetch("/api/reviews", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -64,7 +64,7 @@ const Room = ({ room, user }) => {
 
   const handleBook = () => {
     if (user.name) {
-      fetch("/bookings", {
+      fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

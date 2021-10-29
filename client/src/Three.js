@@ -1,6 +1,6 @@
 import React, { useState, Suspense } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, Stars, Sky } from "@react-three/drei";
+import { OrbitControls, Stars, Sky, Text, Stats } from "@react-three/drei";
 
 import * as THREE from "three";
 import { TextureLoader } from "three";
@@ -66,7 +66,16 @@ export function Earth(props) {
     </>
   );
 }
-
+// function Loads() {
+//   return (
+//     <Text
+//       scale={[10, 10, 10]}
+//       color="red" // default
+//     >
+//       HELLO WORLD
+//     </Text>
+//   );
+// }
 const Three = () => {
   return (
     <>
@@ -79,18 +88,8 @@ const Three = () => {
           left: "0px",
         }}
       >
-        {/* <div
-          style={{
-            color: "white",
-            poition: "absolute",
-            top: "40%",
-            backgroundColor: "transparent",
-          }}
-        >
-          <h3>Travel</h3>
-        </div> */}
         <Canvas colorManagement camera={{ fov: 40 }}>
-          <Suspense fallback={Loading}>
+          <Suspense fallback={null}>
             <Earth />
           </Suspense>
         </Canvas>

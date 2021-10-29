@@ -5,11 +5,11 @@ const Booking = () => {
   const [logIn, setLogIn] = useState(false);
   const [bookings, setBookings] = useState([]);
   useEffect(() => {
-    fetch("/me").then((resp) => {
+    fetch("/api/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((data) => {
           if (data) {
-            fetch(`users/${data.id}/bookings`)
+            fetch(`/api/users/${data.id}/bookings`)
               .then((resp) => resp.json())
               .then((data) => setBookings(data));
           }
@@ -21,7 +21,7 @@ const Booking = () => {
     });
   }, []);
   const cancelBook = (key) => {
-    fetch(`/bookings/${key}`, {
+    fetch(`/api/bookings/${key}`, {
       method: "DELETE",
     });
     setBookings(() => {
@@ -40,17 +40,33 @@ const Booking = () => {
             return (
               <>
                 <li className="booking-list shadow">
-                  <h3>{book.room.description}</h3>
-                  <img
-                    src={book.pictures[0].url}
-                    alt="pic"
-                    className="pic-small"
-                  />
-                  <h4>For {book.duration} nights</h4>
-                  <h5>From: {book.start_date.toString().slice(0, 10)}</h5>
-                  <h5>To: {book.end_date.toString().slice(0, 10)} </h5>
-                  <h6>Total Paid: ${book.room.price * book.duration}</h6>
+                  <section style={{ paddingRight: "3rem" }}>
+                    <h3>{book.room.description}</h3>
+                    <img
+                      src={book.pictures[0].url}
+                      alt="pic"
+                      className="pic-small"
+                    />
+                  </section>
+                  <section style={{ paddingRight: "3rem", paddingTop: "5rem" }}>
+                    <h4 style={{ paddingBottom: "1rem" }}>
+                      Duraion: {book.duration} nights
+                    </h4>
+
+                    <h5 style={{ paddingBottom: "3rem" }}>
+                      Total Paid: ${book.room.price * book.duration}
+                    </h5>
+                    <h5>
+                      <em style={{ color: "red" }}>From:</em>{" "}
+                      {book.start_date.toString().slice(0, 10)}
+                    </h5>
+                    <h5>
+                      <em style={{ color: "red" }}>To:</em>{" "}
+                      {book.end_date.toString().slice(0, 10)}{" "}
+                    </h5>
+                  </section>
                   <button
+                    style={{ marginTop: "7rem" }}
                     className="btn"
                     onClick={() => {
                       cancelBook(book.id);

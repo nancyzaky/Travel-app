@@ -14,13 +14,17 @@ import Booking from "./Booking";
 import Attractions from "./Attractions";
 import Flight from "./Flight";
 import Activities from "./Activities";
+import Footer from "./Footer";
+require("dotenv").config();
+
+console.log(process.env.REACT_APP_API_KEY);
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
     setUser(user);
   };
   useEffect(() => {
-    fetch("/me").then((resp) => {
+    fetch("/api/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((data) => {
           if (data) {
@@ -36,6 +40,7 @@ function App() {
       <div className="App">
         <Router>
           <Nav user={user} changeUser={changeUser} />
+
           <Switch>
             <Route exact path="/">
               <Home user={user} />

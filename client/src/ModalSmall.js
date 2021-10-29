@@ -4,7 +4,14 @@ const ModalSmall = ({ errorMessage }) => {
   return (
     <aside
       className="modal"
-      style={{ height: "300px", width: "400px", float: "right", top: "50%" }}
+      style={{
+        height: "400px",
+        width: "500px",
+        top: "10%",
+        left: "50%",
+        position: "fixed",
+        backgroundColor: "lightblue",
+      }}
     >
       <h4 style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</h4>
     </aside>
