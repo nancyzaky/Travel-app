@@ -13,7 +13,7 @@ const Nav = ({ user, changeUser }) => {
     setShowNav(!showNav);
   };
   const handleLogOut = () => {
-    fetch("/logout", {
+    fetch("/api/logout", {
       method: "DELETE",
     });
     changeUser({});
