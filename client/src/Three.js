@@ -66,16 +66,17 @@ export function Earth(props) {
     </>
   );
 }
-// function Loads() {
-//   return (
-//     <Text
-//       scale={[10, 10, 10]}
-//       color="red" // default
-//     >
-//       HELLO WORLD
-//     </Text>
-//   );
-// }
+function Loads() {
+  return (
+    <Text
+      scale={[10, 10, 10]}
+      color="red" // default
+    >
+      HELLO WORLD
+    </Text>
+  );
+}
+
 const Three = () => {
   return (
     <>
