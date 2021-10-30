@@ -25,7 +25,7 @@
     "start": "PORT=4000 react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && npm run clean && npm run build && npm run deploy"
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider"
   },
   "eslintConfig": {
     "extends": [
