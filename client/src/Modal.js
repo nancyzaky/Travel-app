@@ -8,7 +8,6 @@ const Modal = ({ room, closeModal, user }) => {
     fetch(`/api/rooms/${room.id}`).then((resp) => {
       if (resp.ok) {
         resp.json().then((d) => {
-          console.log(d);
           setReviews(d.reviews);
         });
       } else {

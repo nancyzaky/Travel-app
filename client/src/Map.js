@@ -13,10 +13,10 @@ const Map = ({ long, lat, address }) => {
     lat: lat,
     lng: long,
   };
-  const MY_KEY = process.env.REACT_APP_API_KEY;
+  const key = process.env.REACT_APP_API_KEY;
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: MY_KEY,
+    googleMapsApiKey: key,
   });
 
   const [map, setMap] = useState(null);
