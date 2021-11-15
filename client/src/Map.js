@@ -14,7 +14,6 @@ const Map = ({ long, lat, address }) => {
     lng: long,
   };
   const MY_KEY = process.env.REACT_APP_API_KEY;
-  console.log(MY_KEY);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: MY_KEY,
