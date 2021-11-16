@@ -49,7 +49,7 @@ const Checkout = ({
         style={{ backgroundColor: "white", height: "300px" }}
       >
         <span className="close" onClick={closeCheckOut}>
-          <IoMdClose />
+          <IoMdClose className="" />
         </span>
         {!startDate && <p>please select a start and end date</p>}
         {user.name && startDate && (
