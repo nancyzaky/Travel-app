@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3000",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@react-google-maps/api": "^2.4.1",
     "@react-three/drei": "^7.13.1",
