@@ -19,5 +19,7 @@ npm run serve
 
 Features Im currently working on:
 
--Design responsiveness and overall project styling..
+-Design responsiveness and overall project styling.
+
+
 -Action mailer for confirming booking & activities reminder emails.
