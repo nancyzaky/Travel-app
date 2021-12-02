@@ -16,18 +16,20 @@ def index
 end
 def destroy
   review = Review.find(params[:id])
+  # byebug
   review.destroy
   head :no_content
 end
 def update
 review = Review.find(params[:id])
+# byebug
 review.update(review_params)
 render json: review
 end
 private
 
 def review_params
-params.permit(:rating, :text, :room_id, :name)
+params.permit(:rating, :text, :room_id, :name, :id)
 end
 
 def render_not_valid(invalid)
