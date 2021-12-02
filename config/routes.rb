@@ -14,12 +14,11 @@ resources :hotels, only: [:index, :create, :show] do
 end
 resources :activities, only: [:create, :show, :destroy, :update]
 resources :pictures, only: [:create]
-resources :reviews, only: [:update, :destroy]
+resources :reviews, only: [:update, :destroy,:create, :index]
 post "/login", to: "sessions#create"
 get "/me", to: "users#show"
 delete "/logout", to: "sessions#destroy"
 get "/rooms/:id", to: "rooms#show"
-resources :reviews, only: [:create, :index]
 post "/views", to: "views#create"
 get "/rooms/:id/reviews", to: "reviews#index"
 get "/rooms/:id/bookings/:start_date/:end_date", to: "bookings#available"
