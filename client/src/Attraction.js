@@ -33,58 +33,74 @@ const Attraction = ({ item, user }) => {
       });
   };
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setError(false);
-    }, 3000);
-  }, [error]);
+    }, 5000);
+    // return clearTimeout(timer);
+  }, [errorMessage, error]);
   return (
-    <li style={{ display: "grid" }} className="attr-list">
+    <li
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "wrap",
+        paddingBottom: "6rem",
+      }}
+      className="attr-list"
+    >
       <div
         style={{
           justifyContent: "center",
           textAlign: "center",
           alignItems: "center",
+          width: "90%",
+          // maxHeight: "500px",
+          minHeight: "500px",
+          display: "grid",
+          alignItems: "center",
         }}
       >
-        {error && <ModalSmall errorMessage={errorMessage} />}
-
+        {error && <ModalSmall errorMessage={errorMessage} img={item.photo} />}
         <img src={item.photo} alt="pic" className="attract-pic" />
-
-        <section style={{ float: "right", height: "220px" }}>
-          <h3 style={{ paddingBottom: "1rem", color: "red" }}>{item.name}</h3>
-
-          <h4 style={{ paddingBottom: "1rem" }}>{item.description}</h4>
-
-          <h5 style={{ paddingBottom: "1rem" }}>
-            Distance from the Hotel {item.distance.slice(0, 3)} miles away
-          </h5>
-          <h4 style={{ paddingBottom: "0.5rem" }}>Rating</h4>
-          <h5
-            style={{
-              color: "orange",
+        <h3 style={{ paddingBottom: "1rem", color: "red" }}>{item.name}</h3>
+        <h4 style={{ paddingBottom: "1rem", height: "3rem" }}>
+          {item.description.slice(0, 68)} ...
+          <h6
+            onClick={() => {
+              setError(true);
+              setErrorMessage(item.description);
             }}
           >
-            {countStar(item.rating)}
-          </h5>
-          <section
-            style={{
-              display: "absolute",
-              // border: "0.1rem solid red",
-            }}
-          >
-            <DatePicker
-              startDate={start}
-              selected={start}
-              onChange={(update) => {
-                setStart(update);
-              }}
-              placeholderText="click to select planned date"
-            />
-            <button className="btn" onClick={handleActive}>
-              Add To Activities
-            </button>
-          </section>
-        </section>
+            Read more
+          </h6>
+        </h4>
+
+        <h5 style={{ paddingBottom: "1rem" }}>
+          Distance from the Hotel {item.distance.slice(0, 3)} miles away
+        </h5>
+        <h4>Rating</h4>
+        <h5
+          style={{
+            color: "orange",
+          }}
+        >
+          {countStar(item.rating)}
+        </h5>
+        <DatePicker
+          startDate={start}
+          selected={start}
+          onChange={(update) => {
+            setStart(update);
+          }}
+          placeholderText="click to select planned date"
+        />
+        <button
+          className="btn"
+          style={{ textAlign: "center", marginLeft: "8rem", width: "8rem" }}
+          onClick={handleActive}
+        >
+          Add To Activities
+        </button>
       </div>
     </li>
   );

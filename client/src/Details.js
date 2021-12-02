@@ -51,10 +51,10 @@ const Details = () => {
               <Link to={`/hotel/${id}/rooms`}>Rooms</Link>
             </li>
             {/* <li className="list-items">
-              <Link to={`/hotel/${id}/restaurants`}>Restaurants</Link>
+              <Link to={`/hotel/${id}/flights`}>Flights</Link>
             </li> */}
             <li className="list-items">
-              <Link to={`/hotel/${id}/flights`}>Flights</Link>
+              <Link to={`/hotel/${id}/weather`}>Weather</Link>
             </li>
             <li className="list-items">
               <a
@@ -68,10 +68,9 @@ const Details = () => {
               <Link to={`/hotel/${id}/attractions`}>Attractions</Link>
             </li>
           </ul>
-          <section>
-            <HotelSlide pics={pics} />
+          <section style={{ width: "60%" }}>
+            <HotelSlide pics={pics} key={id} />
             <br></br>
-            <hr className="big-line"></hr>
           </section>
           <ul className="features-cont">
             <li className="features-list">
@@ -89,10 +88,10 @@ const Details = () => {
               {features.pool && <GrSwim />}
             </li>
           </ul>
-          <hr className="big-line"></hr>
+          {/* <hr className="big-line"></hr> */}
           <section>
-            <Map lat={lat} long={long} address={address} />
-            <hr className="big-line"></hr>
+            {/* <Map lat={lat} long={long} address={address} /> */}
+            {/* <hr className="big-line"></hr> */}
           </section>{" "}
           {/* </div> */}
         </li>

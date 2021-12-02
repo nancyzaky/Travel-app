@@ -26,7 +26,7 @@ const Hotels = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "grey" }}>
+    <div>
       <input
         value={city}
         placeholder="search by destination"
@@ -50,7 +50,7 @@ const Hotels = () => {
           alignItems: "center",
           display: "fixed",
           height: "1200px",
-          backgroundColor: "grey",
+          // backgroundColor: "grey",
           margin: "auto",
         }}
       >

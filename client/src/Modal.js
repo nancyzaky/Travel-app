@@ -4,6 +4,12 @@ import { IoMdClose } from "react-icons/io";
 
 const Modal = ({ room, closeModal, user }) => {
   const [reviews, setReviews] = useState([]);
+  const changeReviews = (num) => {
+    let newArr = reviews.filter((review) => {
+      return review.id !== num;
+    });
+    setReviews(newArr);
+  };
   const fetchReviews = () => {
     fetch(`/api/rooms/${room.id}`).then((resp) => {
       if (resp.ok) {
@@ -23,11 +29,18 @@ const Modal = ({ room, closeModal, user }) => {
     <aside className="slide-container">
       <div className="reviews-modal">
         <IoMdClose className="close" onClick={closeModal} />
-        <ul claasName="reviews-cont">
-          {reviews.map((review) => {
-            return <Review key={review.id} review={review} user={user} />;
-          })}
-        </ul>
+        {/* <ul className="reviews-cont"> */}
+        {reviews.map((review) => {
+          return (
+            <Review
+              key={review.id}
+              review={review}
+              user={user}
+              changeReviews={changeReviews}
+            />
+          );
+        })}
+        {/* </ul> */}
       </div>
     </aside>
   );

@@ -52,6 +52,7 @@ const Attractions = ({ user }) => {
           color: "lightBlue",
           fontSize: "30px",
           textShadow: "0px 10px 10px",
+          marginLeft: "1rem",
         }}
       >
         {" "}
@@ -68,12 +69,21 @@ const Attractions = ({ user }) => {
           fontSize: "20px",
           textShadow: "0px 13px 13px ",
           color: "grey",
+          marginLeft: "1rem",
         }}
       >
         Hotel
       </h4>
       <div style={{ textAlign: "center", top: "0", width: "100%" }}>
-        <section style={{ display: "flex", justifyContent: "center" }}>
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "end",
+            marginRight: "2.5rem",
+            marginTop: "-2rem",
+            // width: "50%",
+          }}
+        >
           <h3 style={{ paddingTop: "0.5rem", paddingRight: "1rem" }}>
             Filter By <FcFilledFilter />
           </h3>

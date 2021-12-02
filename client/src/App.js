@@ -15,7 +15,7 @@ import Attractions from "./Attractions";
 import Flight from "./Flight";
 import Activities from "./Activities";
 import Footer from "./Footer";
-
+import Weather from "./Weather";
 function App() {
   const [user, setUser] = useState({ name: "", id: null });
   const changeUser = (user) => {
@@ -61,6 +61,9 @@ function App() {
             </Route>
             <Route exact path="/hotel/:id/flights">
               <Flight />
+            </Route>
+            <Route exact path="/hotel/:id/weather">
+              <Weather />
             </Route>
             <Route path="/book">
               <Booking user={user} />

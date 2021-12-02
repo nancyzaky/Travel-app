@@ -30,7 +30,7 @@ const Activity = ({ attr, handleDelete }) => {
     <>
       <li key={attr.id} className="activity">
         <img src={attr.attraction.photo} alt="pic" className="hotel-pic" />
-        <h4>
+        <h4 style={{ letterSpacing: "2px", paddingTop: "2rem" }}>
           You Planned to Visit{attr.attraction.name} on{" "}
           <em style={{ color: "red", fontWeight: "bold" }}>
             {start.toString().slice(0, 10)}
@@ -39,7 +39,7 @@ const Activity = ({ attr, handleDelete }) => {
         <ul
           style={{
             display: "flex",
-            width: "16rem",
+            // width: "16rem",
             justifyContent: "center",
             paddingTop: "1rem",
           }}
@@ -78,7 +78,7 @@ const Activity = ({ attr, handleDelete }) => {
           </>
         )}
       </li>
-      <hr className="big-line"></hr>
+      {/* <hr className="big-line"></hr> */}
     </>
   );
 };

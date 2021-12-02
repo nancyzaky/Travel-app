@@ -31,12 +31,11 @@ const Booking = () => {
     });
   };
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", display: "grid" }}>
       {logIn && <h3>Please Log In to view your bookings</h3>}
       {bookings.length > 0 && (
         <ul className="booking-container">
           {bookings.map((book) => {
-            console.log(book);
             return (
               <>
                 <li className="booking-list shadow">
@@ -66,7 +65,7 @@ const Booking = () => {
                     </h5>
                   </section>
                   <button
-                    style={{ marginTop: "7rem" }}
+                    style={{ marginTop: "7rem", marginLeft: "4rem" }}
                     className="btn"
                     onClick={() => {
                       cancelBook(book.id);
