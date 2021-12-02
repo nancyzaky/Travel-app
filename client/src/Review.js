@@ -3,7 +3,7 @@ import { GrStar } from "react-icons/gr";
 import { FiEdit } from "react-icons/fi";
 import { BsTrash } from "react-icons/bs";
 
-const Review = ({ review, user }) => {
+const Review = ({ review, user, changeReviews }) => {
   const [edit, setEdit] = useState(false);
   const [stars, setStars] = useState("");
   const [editedText, setEditedText] = useState(review.text);
@@ -11,7 +11,7 @@ const Review = ({ review, user }) => {
     setEdit(true);
   };
   const handleEditSub = (key) => {
-    fetch(`/api/api/reviews/${key}`, {
+    fetch(`/api/reviews/${key}`, {
       method: "PATCH",
       body: JSON.stringify({ text: editedText }),
       headers: { "Content-Type": "application/json" },
@@ -22,15 +22,16 @@ const Review = ({ review, user }) => {
     setEdit(false);
   };
   const handleDelete = (key) => {
+    changeReviews(key);
+    console.log(key);
     fetch(`/api/reviews/${key}`, {
       method: "DELETE",
     })
       .then((resp) => resp.json())
       .then((d) => console.log(d));
-
     setEdit(false);
-    setEditedText("");
-    setStars("");
+    // setEditedText("");
+    // setStars("");
   };
   const countStar = (num) => {
     let word = "";
@@ -46,13 +47,27 @@ const Review = ({ review, user }) => {
   console.log(review, user);
   return (
     <>
-      <li className="review-list">
-        <section className="text">
-          <h4 className="review-name">{review.name} said:</h4>
+      <section className="text">
+        <h4 className="review-name">{review.name} said:</h4>
 
-          <h5 style={{ color: "orange" }}>{stars}</h5>
-
-          <h5 style={{ paddingTop: "1rem", paddingBottom: "2rem" }}>
+        <h5 style={{ color: "orange" }}>{stars}</h5>
+        <section
+          style={{
+            width: "100%",
+            height: "30%",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <h5
+            style={{
+              paddingTop: "1rem",
+              paddingBottom: "2rem",
+              width: "90%",
+              height: "10rem",
+              // marginLeft: "-2rem",
+            }}
+          >
             {editedText}
           </h5>
           <span style={{ color: "green" }}>
@@ -78,10 +93,10 @@ const Review = ({ review, user }) => {
             />
           </span>
         </section>
-
         {edit && (
           <form>
             <input
+              style={{ height: "4rem", width: "30rem" }}
               value={editedText}
               type="text"
               onChange={(e) => {
@@ -90,7 +105,6 @@ const Review = ({ review, user }) => {
             ></input>
           </form>
         )}
-
         {user.name === review.name && edit && (
           <button
             className="btn"
@@ -101,11 +115,7 @@ const Review = ({ review, user }) => {
             Submit Edited review
           </button>
         )}
-      </li>
-      <hr
-        className="big-line"
-        style={{ width: "90%", justifyContent: "center" }}
-      ></hr>
+      </section>
     </>
   );
 };

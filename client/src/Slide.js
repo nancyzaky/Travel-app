@@ -30,8 +30,16 @@ const Slide = ({ pics, closePicsModal }) => {
       }}
     >
       <aside className="slide">
-        <HiArrowCircleLeft className="arrow-left" onClick={handlePrev} />
-        <HiArrowCircleRight className="arrow-right" onClick={handleNext} />
+        <HiArrowCircleLeft
+          className="arrow-left"
+          onClick={handlePrev}
+          style={{ top: "50%" }}
+        />
+        <HiArrowCircleRight
+          className="arrow-right"
+          onClick={handleNext}
+          style={{ top: "50%" }}
+        />
         {pics.map((pic, index) => {
           console.log(index, currentIndex);
           return (

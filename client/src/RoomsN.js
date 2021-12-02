@@ -106,18 +106,19 @@ const RoomsN = ({ room, user }) => {
     }
   };
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setErrorMessage("");
       setSuccess(false);
     }, 3000);
+    // return clearTimeout(timer);
   }, [errorMessage, success]);
   return (
     <div
       style={{
-        width: "100%",
+        width: "90%",
         justifyContent: "center",
         // textAlign: "center",
-        marginLeft: "2rem",
+        marginLeft: "3rem",
       }}
     >
       {picsModal && (

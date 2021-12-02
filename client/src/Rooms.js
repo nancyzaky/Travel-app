@@ -26,13 +26,16 @@ const Rooms = ({ user }) => {
     fetchUrl();
   }, []);
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={{ width: "100%", display: "inline-block", paddingBottom: "2rem" }}
+    >
       <Link to={`/hotel/${id}`}>
         <span
           style={{
             color: "lightBlue",
             fontSize: "30px",
             textShadow: "0px 10px 10px",
+            marginLeft: "1rem",
           }}
         >
           <TiArrowBack />
@@ -42,6 +45,7 @@ const Rooms = ({ user }) => {
             fontSize: "20px",
             textShadow: "0px 13px 13px ",
             color: "grey",
+            marginLeft: "1rem",
           }}
         >
           Hotel
