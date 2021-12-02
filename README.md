@@ -1,4 +1,4 @@
-TripIt is a booking web app I designed and built as a Flatiron school coding bootcamp project.
+TripIt is a booking web app I designed and built during Flatiron school coding bootcamp.
 Book hotel rooms, check near by activities and more.
 
 🛠 Installation & Set Up Install and use the correct version of Node using NVM
