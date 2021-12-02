@@ -32,7 +32,18 @@ export function Earth(props) {
         factor={4}
         saturation={0}
         fade
-      />
+      >
+        <mesh position={[0, 0.7, 0]}>
+          <Text
+            scale={[3, 3, 3]}
+            color="pink"
+            castShadow
+            // default
+          >
+            Hi
+          </Text>
+        </mesh>
+      </Stars>
       <mesh>
         <sphereGeometry args={[1.003, 32, 32]} />
         <meshPhongMaterial
@@ -43,6 +54,7 @@ export function Earth(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
+
       <mesh>
         <sphereGeometry args={[1, 32, 32]} />
         <meshPhongMaterial specular={specularMap} />
@@ -78,12 +90,20 @@ export function Earth(props) {
 // }
 const Three = () => {
   return (
-    <>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        textAlign: "center",
+        justifyContent: "center",
+      }}
+    >
       <div
         style={{
-          height: "100%",
-          width: "100%",
-          position: "absolute",
+          height: "105%",
+          width: "71%",
+          // position: "absolute",
           zIndex: "1",
           left: "0px",
         }}
@@ -94,7 +114,33 @@ const Three = () => {
           </Suspense>
         </Canvas>
       </div>
-    </>
+      <div
+        style={{
+          height: "105%",
+          width: "30%",
+          // position: "absolute",
+          zIndex: "1",
+          display: "grid",
+          textAlign: "center",
+        }}
+        className="left"
+      >
+        <h3
+          style={{
+            height: "20%",
+            color: "black",
+            // color: "grey",
+            marginTop: "2rem",
+            letterSpacing: "3px",
+          }}
+        >
+          Let's Go Travel
+        </h3>
+        <h1 style={{ color: "white", fontSize: "60px", letterSpacing: "3px" }}>
+          TripIt
+        </h1>
+      </div>
+    </div>
   );
 };
 export default Three;
